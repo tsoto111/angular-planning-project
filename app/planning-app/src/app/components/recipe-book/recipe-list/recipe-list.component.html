@@ -3,9 +3,10 @@
     <app-shopping-list-edit></app-shopping-list-edit>
     <hr/>
     <p>The Recipe List</p>
-    <app-recipe-item></app-recipe-item>
-    <app-recipe-item></app-recipe-item>
-    <app-recipe-item></app-recipe-item>
-    <app-recipe-item></app-recipe-item>
+    <ul class="recipe-list list-group" *ngIf="hasRecipes">
+      <li class="recipe-list__item list-group-item" *ngFor="let recipe of recipies">
+        <app-recipe-item [title]="recipe.name" [description]="recipe.description" [imagePath]="recipe.imagePath"></app-recipe-item>
+      </li>
+    </ul>
   </div>
 </div>
