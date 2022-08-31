@@ -1,12 +1,12 @@
 <div class="d-flex">
-  <div class="col-3 me-auto" *ngIf="hasImagePath()">
-    <div class="ratio ratio-1x1">
-      <img class="recipe-list__img" src="{{ imagePath }}" />
-    </div>
-  </div>
   <div class="col-8">
     <h4 class="recipe-list__title">{{ title }}</h4>
     <p class="recipe-list__desc">{{ description }}</p>
     <a class="recipe-list__cta btn btn-sm btn-primary" href="#">View More</a>
+  </div>
+  <div class="col-3 ms-auto" *ngIf="hasImagePath()">
+    <div class="ratio ratio-1x1">
+      <img class="recipe-list__img" [src]="imagePath" />
+    </div>
   </div>
 </div>
