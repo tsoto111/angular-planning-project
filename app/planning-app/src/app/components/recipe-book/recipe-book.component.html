@@ -1,8 +1,8 @@
 <div class="row mb-5">
   <div class="col-12 col-md-5">
-    <app-recipe-list></app-recipe-list>
+    <app-recipe-list (selectedRecipeDelegate)="selectedRecipe($event)"></app-recipe-list>
   </div>
-  <div class="col-12 col-md-7">
-    <app-recipe-detail></app-recipe-detail>
+  <div class="col-12 col-md-7" *ngIf="activeRecipe !== undefined">
+    <app-recipe-detail [selectedRecipe]="activeRecipe"></app-recipe-detail>
   </div>
 </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Recipe } from '../../../models/recipe.model';
 
 @Component({
@@ -7,6 +7,8 @@ import { Recipe } from '../../../models/recipe.model';
   styleUrls: ['./recipe-list.component.scss']
 })
 export class RecipeListComponent implements OnInit {
+  @Output() selectedRecipeDelegate = new EventEmitter<Recipe>();
+
   recipies: Recipe[] = [
     new Recipe(
       'A test recipe',
@@ -38,5 +40,19 @@ export class RecipeListComponent implements OnInit {
    */
   hasRecipes = (): boolean => {
     return this.recipies.length > 0 ? true : false;
+  }
+
+  /**
+   * Selected Recipe
+   *
+   * This function captures the selected recipe from the clild component's
+   * "selected recipe delegate." We will pass the selected recipe back to the
+   * main recipe book component.
+   *
+   * @param {Recipe} targetRecipe The selected recipe's data
+   * @returns {void}
+   */
+  selectedRecipe(targetRecipe: Recipe): void {
+    this.selectedRecipeDelegate.emit(targetRecipe);
   }
 }

@@ -1,12 +1,12 @@
 <div class="d-flex">
   <div class="col-8">
-    <h4 class="recipe-list__title">{{ title }}</h4>
-    <p class="recipe-list__desc">{{ description }}</p>
-    <a class="recipe-list__cta btn btn-sm btn-primary" href="#">View More</a>
+    <h4 class="recipe-list__title">{{ recipeData.name }}</h4>
+    <p class="recipe-list__desc">{{ recipeData.description }}</p>
+    <button class="recipe-list__cta btn btn-sm btn-primary" (click)="viewRecipe(recipeData)">View More</button>
   </div>
   <div class="col-3 ms-auto" *ngIf="hasImagePath()">
     <div class="ratio ratio-1x1">
-      <img class="recipe-list__img" [src]="imagePath" />
+      <img class="recipe-list__img" [src]="recipeData.imagePath" />
     </div>
   </div>
 </div>

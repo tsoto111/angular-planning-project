@@ -7,7 +7,7 @@
     <hr/>
     <ul class="recipe-list list-group" *ngIf="hasRecipes">
       <li class="recipe-list__item list-group-item" *ngFor="let recipe of recipies">
-        <app-recipe-item [title]="recipe.name" [description]="recipe.description" [imagePath]="recipe.imagePath"></app-recipe-item>
+        <app-recipe-item [recipeData]="recipe" (selectRecipeDelegate)="selectedRecipe($event)"></app-recipe-item>
       </li>
     </ul>
   </div>

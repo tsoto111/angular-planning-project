@@ -1,5 +1,5 @@
 <div class="d-flex">
-  <h2>Recipe Name</h2>
+  <h2>{{ selectedRecipe.name }}</h2>
   <div class="btn-group ms-auto" role="group" aria-label="Recipe Controls">
     <button id="manageRecipeGroupDrop" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
       Manage Recipe
@@ -18,5 +18,8 @@
   </div>
 </div>
 <hr/>
+
 <h3>Description</h3>
+<p>{{ selectedRecipe.description }}</p>
+
 <h3>Ingredients</h3>
