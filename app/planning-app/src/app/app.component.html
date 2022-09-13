@@ -1,5 +1,5 @@
-<app-header></app-header>
+<app-header (navigationClickDelegate)="handleNavDelegateState($event)"></app-header>
 <section class="container-xl py-5">
-  <app-recipe-book></app-recipe-book>
-  <app-shopping-list></app-shopping-list>
+  <app-recipe-book *ngIf="navMenuComponentState.recipeBook === true"></app-recipe-book>
+  <app-shopping-list *ngIf="navMenuComponentState.shoppingList === true"></app-shopping-list>
 </section>
