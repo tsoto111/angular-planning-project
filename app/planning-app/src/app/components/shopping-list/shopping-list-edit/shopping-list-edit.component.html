@@ -1,17 +1,29 @@
 <form class="d-block w-100">
   <div class="row mb-3">
     <div class="col">
+      <app-alert alertType="danger" *ngIf="shoppingListErrorMessage.length > 0">
+        Oops, there was a problem:
+        <ul class="mb-0">
+          <li *ngFor="let errorMessage of shoppingListErrorMessage">
+            {{ errorMessage }}
+          </li>
+        </ul>
+      </app-alert>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col">
       <label for="name" class="form-label">Name</label>
-      <input type="text" id="name" class="form-control" />
+      <input type="text" id="name" class="form-control" #nameInput />
     </div>
     <div class="col">
       <label for="amount" class="form-label">Amount</label>
-      <input type="text" id="amount" class="form-control" />
+      <input type="number" id="amount" class="form-control" #amountInput />
     </div>
   </div>
   <div class="row">
     <div class="col">
-      <button type="submit" class="btn btn-success me-1">Add</button>
+      <button type="submit" class="btn btn-success me-1" (click)="addIngredient()">Add</button>
       <button type="button" class="btn btn-danger me-1">Delete</button>
       <button type="button" class="btn btn-warning">Clear</button>
     </div>
