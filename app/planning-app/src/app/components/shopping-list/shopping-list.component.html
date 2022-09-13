@@ -2,7 +2,7 @@
 <hr />
 <div class="row">
   <div class="col-10">
-    <app-shopping-list-edit></app-shopping-list-edit>
+    <app-shopping-list-edit (addShoppingListItemDelegate)="addIngredient($event)"></app-shopping-list-edit>
     <hr/>
     <ul class="shopping-list list-group">
       <li class="shopping-list_item list-group-item" *ngFor="let ingredient of ingredients">
