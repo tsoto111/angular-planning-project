@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Output, EventEmitter, Renderer2 } from '@angular/core';
 import { Ingredient } from 'src/app/models/ingredient.model';
 
 @Component({
@@ -13,7 +13,7 @@ export class ShoppingListEditComponent implements OnInit {
 
   shoppingListErrorMessage: Array<string> = []
 
-  constructor() {}
+  constructor(private viewRenderer: Renderer2) {}
 
   ngOnInit(): void {}
 
@@ -41,9 +41,9 @@ export class ShoppingListEditComponent implements OnInit {
     }
 
     const newIngredient = new Ingredient(this.nameInput.nativeElement.value, this.amountInput.nativeElement.value);
-    this.addShoppingListItemDelegate.emit(newIngredient)
+    this.addShoppingListItemDelegate.emit(newIngredient);
 
-    this.nameInput.nativeElement.value = '';
-    this.amountInput.nativeElement.value = '';
+    this.viewRenderer.setProperty(this.nameInput.nativeElement, 'value', '');
+    this.viewRenderer.setProperty(this.amountInput.nativeElement, 'value', '');
   }
 }
